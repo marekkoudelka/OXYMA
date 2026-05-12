@@ -235,3 +235,35 @@ window.initTweaks = function(defaults) {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+// Horizontal parallax: teaser-media photos (skip non-absolute imgs like the kontakt logo)
+(function(){
+  function init(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var imgs = Array.prototype.slice.call(document.querySelectorAll('.teaser-media img'));
+    imgs = imgs.filter(function(img){ return getComputedStyle(img).position === 'absolute'; });
+    if (!imgs.length) return;
+    var ticking = false;
+    function update(){
+      var vh = window.innerHeight;
+      imgs.forEach(function(img){
+        var fig = img.parentElement;
+        var rect = fig.getBoundingClientRect();
+        if (rect.bottom < -200 || rect.top > vh + 200) return;
+        var centerOffset = rect.top + rect.height/2 - vh/2;
+        var t = -centerOffset * 0.12;
+        var max = rect.width * 0.08;
+        if (t > max) t = max;
+        if (t < -max) t = -max;
+        img.style.transform = 'translate3d(' + t.toFixed(2) + 'px,0,0)';
+      });
+      ticking = false;
+    }
+    function onScroll(){ if (!ticking){ requestAnimationFrame(update); ticking = true; } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
