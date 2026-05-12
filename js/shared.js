@@ -251,8 +251,8 @@ window.initTweaks = function(defaults) {
         var rect = fig.getBoundingClientRect();
         if (rect.bottom < -200 || rect.top > vh + 200) return;
         var centerOffset = rect.top + rect.height/2 - vh/2;
-        var t = -centerOffset * 0.025; // percent points
-        var max = 15;
+        var t = -centerOffset * 0.012; // percent points
+        var max = 8;
         if (t > max) t = max;
         if (t < -max) t = -max;
         img.style.objectPosition = (50 + t).toFixed(2) + '% 50%';
