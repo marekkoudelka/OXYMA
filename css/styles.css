@@ -242,16 +242,14 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
 }
 
 .hero-photo { position: relative; margin: 0; width: 100%; overflow: hidden; }
-.hero-photo img { width: 100%; height: auto; display: block; }
+.hero-photo img { width: 100%; height: 120%; object-fit: cover; display: block; will-change: transform; }
 /* parallax: home hero photo (first .hero-photo inside .hero-airy) */
 .hero-airy .hero-photo { height: clamp(480px, 75vw, 850px); }
-.hero-airy .hero-photo img { width: 100%; height: 120%; object-fit: cover; will-change: transform; }
-@media (prefers-reduced-motion: reduce) {
-  .hero-airy .hero-photo img { transform: none !important; }
-}
 /* scenic full-bleed strip (section divider) — cinematic crop */
 .hero-photo.scenic-strip { height: clamp(280px, 46vw, 560px); }
-.hero-photo.scenic-strip img { width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo img { transform: none !important; }
+}
 .hero-photo .photo-caption {
   position: absolute; left: clamp(20px, 4vw, 56px); bottom: clamp(20px, 3vw, 36px);
   font-family: var(--font-mono); font-size: 10px;
