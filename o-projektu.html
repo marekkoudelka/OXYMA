@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>O projektu — OXYMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+ExtraExpanded:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .pillar { padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 14px; align-content: start; min-height: 320px; }
+  .pillar-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--muted); }
+  .pillar-list { list-style: none; padding: 0; margin: auto 0 0; display: grid; gap: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .pillar-list li { padding-left: 14px; position: relative; }
+  .pillar-list li::before { content:''; position: absolute; left: 0; top: 7px; width: 8px; height: 1px; background: currentColor; }
+</style>
+</head>
+<body data-screen-label="O projektu">
+<script src="js/shared.js"></script>
+<script>renderNav('about');</script>
+
+<header class="page-hero dark"><div class="shell" style="padding: clamp(80px, 10vw, 140px) var(--gutter) clamp(60px, 8vw, 100px);">
+  <div class="eyebrow" style="margin-bottom: 28px;"><a href="index.html" style="opacity:.7;">Domů</a> &nbsp;/&nbsp; O projektu</div>
+  <h1 class="h-display">Navržena <em>dnes</em><br/>pro potřeby zítřka.</h1>
+  <p class="lead" style="margin-top: clamp(28px, 4vw, 48px); max-width: 64ch;">
+    OXYMA je navržena pro potřeby moderních technologických firem, jejichž růst vyžaduje více než jen kancelářské prostory. Nabídne flexibilní zázemí pro administrativu, vývoj, laboratoře i malou výrobu a propojí startupy, etablované technologické společnosti i studenty.
+  </p>
+</div></header>
+
+<div class="spectrum-bar"></div>
+
+<!-- =============== MANIFEST (přesunuto z úvodní stránky) =============== -->
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <div class="section-num">00 — Manifest</div>
+      <div>
+        <h2 class="h-1">Více než jen <em>administrativní budova.</em></h2>
+        <p class="lead" style="margin-top: 28px;">
+          OXYMA není jen administrativní budova. Vzniká jako moderní technologické zázemí pro firmy, které potřebují flexibilní prostory, stabilní infrastrukturu a podmínky pro dlouhodobý růst. Projekt propojuje kanceláře, laboratoře, testbedy, polygony i prostory pro prototypovou a malosériovou výrobu.
+        </p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line);">
+      <div style="padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="label">01 / Technologie a inovace</div>
+        <h3 class="h-3" style="margin-top: 14px;">Laboratoře, testbedy, polygony</h3>
+        <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">Sdílené dílny, 3D tisk i projekční místnosti pro vývoj a ověřování nových technologií. Platforma pro inovace v energetice, 5G a kritické komunikaci.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="label">02 / Technická připravenost</div>
+        <h3 class="h-3" style="margin-top: 14px;">Pro náročnější provozy</h3>
+        <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">Vysokonapěťové rozvody, antistatické podlahy, pokročilé požární zabezpečení i zázemí pro práci s chemickými odpady.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="label">03 / Flexibilita prostor</div>
+        <h3 class="h-3" style="margin-top: 14px;">Od 250 m² po celé budovy</h3>
+        <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">OXYMA se přizpůsobí startupům, vývojovým týmům i zavedeným technologickým společnostem.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="label">04 / Spolupráce</div>
+        <h3 class="h-3" style="margin-top: 14px;">Sdílené know-how</h3>
+        <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">Propojení technologických firem, startupů, akademické sféry i studentů — prostředí pro vznik nových projektů.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="label">05 / Udržitelnost</div>
+        <h3 class="h-3" style="margin-top: 14px;">Cíl LEED Gold</h3>
+        <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">Součást vznikajícího Technologického parku Malešice — jednoho z významných rozvojových území hlavního města Prahy.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+        <div class="label">06 / Stabilní zázemí</div>
+        <h3 class="h-3" style="margin-top: 14px;">Skupina TTC</h3>
+        <p style="margin-top: 12px; color: var(--muted); font-size: 14px;">Investorem je TTC Real Estate — součást české technologické a realitní Skupiny TTC s dlouholetou historií a zkušenostmi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scene">
+  <figure>
+    <img src="assets/oxyma-abc.jpg" alt="Arc, Beam, Chroma" loading="lazy" />
+    <figcaption><span>OXYMA — fáze 1</span><span class="dim">Arc · Beam · Chroma</span></figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <div class="section-num">01 — Proč OXYMA</div>
+      <div><h2 class="h-1">Osm důvodů, <em>proč sem patříte.</em></h2></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line);">
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr);">
+        <article class="pillar">
+          <div class="pillar-num">01 / Technologie</div>
+          <h3 class="h-3">Zázemí pro náročné projekty</h3>
+          <p style="font-size: 14px; color: var(--muted);">Infrastruktura připravená na vývoj, testování i nepřetržitý provoz moderních technologií.</p>
+          <ul class="pillar-list"><li>Napojení na datové centrum</li><li>Vysokokapacitní připojení</li><li>Laboratoře · testbedy · polygony</li><li>Připravenost na 24/7 provoz</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">02 / Energie</div>
+          <h3 class="h-3">Energie jako strategická výhoda</h3>
+          <p style="font-size: 14px; color: var(--muted);">Stabilní a efektivní energetické zázemí pro technologicky náročné firmy.</p>
+          <ul class="pillar-list"><li>Trigenerace &amp; chytré řízení</li><li>Dvojice nezávislých rozvoden</li><li>Ostrovní provoz</li><li>Využití odpadního tepla</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">03 / Flexibilita</div>
+          <h3 class="h-3">Prostor, který roste s vámi</h3>
+          <p style="font-size: 14px; color: var(--muted);">Od startupů po velké technologické společnosti.</p>
+          <ul class="pillar-list"><li>Od 250 m² po samostatné budovy</li><li>Flexibilní dispozice</li><li>Propojení kanceláří a vývoje</li><li>Fit-out na míru</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">04 / Udržitelnost</div>
+          <h3 class="h-3">Udržitelnost, která dává smysl</h3>
+          <p style="font-size: 14px; color: var(--muted);">Konkrétní řešení pro efektivní a odpovědný provoz budov.</p>
+          <ul class="pillar-list"><li>LEED Gold</li><li>Úspora energie až 36 %</li><li>Úspora pitné vody &gt; 30 %</li><li>ESG připravenost</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">05 / Spolupráce</div>
+          <h3 class="h-3">Místo, kde vznikají inovace</h3>
+          <p style="font-size: 14px; color: var(--muted);">Propojení firem, startupů, výzkumu i akademické sféry.</p>
+          <ul class="pillar-list"><li>Sdílené laboratoře a dílny</li><li>Testování nových technologií</li><li>Propojení s akademickým prostředím</li><li>Komunitní programy a eventy</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">06 / Lokalita</div>
+          <h3 class="h-3">Strategická poloha v Praze</h3>
+          <p style="font-size: 14px; color: var(--muted);">Malešice jako vznikající centrum technologií a inovací.</p>
+          <ul class="pillar-list"><li>Metro Depo Hostivař</li><li>Napojení na městský okruh</li><li>MHD přímo před budovou</li><li>Cyklostezka a budoucí železnice</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">07 / Architektura</div>
+          <h3 class="h-3">Architektura inspirovaná technologií</h3>
+          <p style="font-size: 14px; color: var(--muted);">Funkční design navržený pro moderní pracovní prostředí.</p>
+          <ul class="pillar-list"><li>Sklo · kámen · technologické detaily</li><li>Zelené střechy a terasy</li><li>Přirozené denní světlo</li><li>Kvalitní vnitřní klima</li></ul>
+        </article>
+        <article class="pillar">
+          <div class="pillar-num">08 / Komfort</div>
+          <h3 class="h-3">Víc než pracovní prostor</h3>
+          <p style="font-size: 14px; color: var(--muted);">Služby a prostředí podporující každodenní fungování firem i jejich týmů.</p>
+          <ul class="pillar-list"><li>Zelený park před budovou</li><li>Komunitní zahrádka</li><li>Kavárna a restaurace</li><li>Relaxační a venkovní zóny</li></ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<img src="assets/pattern-strip.jpg" alt="" class="pattern-img" style="height: clamp(60px, 10vw, 120px); object-fit: cover;" />
+
+<section class="dark">
+  <div class="shell">
+    <div class="section-head">
+      <div class="section-num">02 — Lokalita</div>
+      <div>
+        <h2 class="h-1"><em>Praha 10</em> — Malešice.</h2>
+        <p class="lead" style="margin-top: 24px;">
+          Strategická poloha v rámci vznikajícího Technologického parku Malešice propojuje technologické zázemí, moderní infrastrukturu a pohodlnou dostupnost. Metro, MHD, městský okruh i cyklostezka jsou v bezprostřední blízkosti projektu.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; border: 1px solid rgba(246,244,239,0.16);">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7988.009532633798!2d14.519960859832997!3d50.07952050918647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1scs!2scz!4v1778513308749!5m2!1scs!2scz" width="100%" height="480" style="border:0; display:block; filter: invert(0.92) hue-rotate(180deg) saturate(0.6);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr; margin-top: 32px;">
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Metro A</div><div class="spec-v">Pěšky na zastávku metra Depo Hostivař</div><div class="spec-v" style="font-family: var(--font-mono);">9 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Autobus</div><div class="spec-v">Autobusová zastávka přímo před budovou</div><div class="spec-v" style="font-family: var(--font-mono);">0 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Tramvaj</div><div class="spec-v">Linky 1, 16, 19, 24, 27 — Depo Hostivař</div><div class="spec-v" style="font-family: var(--font-mono);">6 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Městský okruh</div><div class="spec-v">D0 Pražský okruh, Štěrboholská spojka</div><div class="spec-v" style="font-family: var(--font-mono);">6 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Dálnice</div><div class="spec-v">D1, D4, D8, D11</div><div class="spec-v" style="font-family: var(--font-mono);">15 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Železnice</div><div class="spec-v">Plánovaná železniční zastávka Depo Hostivař</div><div class="spec-v" style="font-family: var(--font-mono);">15 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Cyklostezka</div><div class="spec-v">Bezpečné spojení na metro A i sídliště Malešice</div><div class="spec-v" style="font-family: var(--font-mono);">0 min</div></div>
+      <div class="spec-row" style="border-color: rgba(246,244,239,0.16);"><div class="spec-k" style="color: rgba(246,244,239,0.6);">Letiště</div><div class="spec-v">Letiště Václava Havla — autem</div><div class="spec-v" style="font-family: var(--font-mono);">30 min</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell" style="display:grid; gap: 32px; max-width: 60ch;">
+    <div class="section-num">03 — Další krok</div>
+    <h2 class="h-1">Prohlédněte si <em>konkrétní prostory.</em></h2>
+    <div style="display:flex; gap: 14px; flex-wrap: wrap;">
+      <a href="nabidka-prostor.html" class="btn">Nabídka prostor<svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+      <a href="shell-core.html" class="btn ghost">Shell &amp; Core</a>
+    </div>
+  </div>
+</section>
+
+<script>renderFooter(); initTweaks({ theme: 'light', accent: 'red' });</script>
+</body>
+</html>

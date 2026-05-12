@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nabídka prostor — OXYMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+ExtraExpanded:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-screen-label="Nabídka prostor">
+<script src="js/shared.js"></script>
+<script>renderNav('offer');</script>
+
+<header class="page-hero dark"><div class="shell" style="padding: clamp(80px, 10vw, 140px) var(--gutter) clamp(60px, 8vw, 100px);">
+  <div class="eyebrow" style="margin-bottom: 28px;"><a href="index.html" style="opacity:.7;">Domů</a> &nbsp;/&nbsp; Nabídka prostor</div>
+  <h1 class="h-display">Prohlédněte si <em>konkrétní</em> prostory.</h1>
+  <p class="lead" style="margin-top: clamp(28px, 4vw, 48px); max-width: 64ch;">
+    Arc, Beam a Chroma tvoří první etapu technologického centra OXYMA. Budovy nabídnou flexibilní jednotky od 250 m² až po celá podlaží pro administrativu, vývoj, laboratoře i technologické provozy, doplněné o služby, retail a odpočinkové zóny.
+  </p>
+</div></header>
+
+<div class="spectrum-bar"></div>
+
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <div class="section-num">01 — Interaktivní plán</div>
+      <div>
+        <h2 class="h-1">Postavte si <em>vlastní prostor.</em></h2>
+        <p class="lead" style="margin-top: 24px; max-width: 64ch;">Půdorys jednoho podlaží napříč všemi třemi budovami. Klikem si vyberete jednotku, můžete je libovolně kombinovat napříč Arc, Chroma a&nbsp;Beam. Vybrané plochy se vyplní barvou a&nbsp;orientačním rozmístěním pracovních míst.</p>
+      </div>
+    </div>
+
+    <div class="planner" id="planner">
+      <div class="planner-stage">
+        <svg class="planner-svg" viewBox="0 0 1988 880" preserveAspectRatio="xMidYMid meet" aria-label="Interaktivní půdorys – Arc, Chroma, Beam">
+          <defs>
+            <!-- Workstation pattern (desk + chair, top-down). 1 m = 20 vb units, so this is ~2.5×3 m per workstation -->
+            <pattern id="fitout" width="50" height="60" patternUnits="userSpaceOnUse">
+              <rect x="11" y="12" width="28" height="14" rx="1.5" fill="rgba(255,255,255,0.88)"/>
+              <rect x="19" y="29" width="12" height="9" rx="1" fill="rgba(255,255,255,0.55)"/>
+            </pattern>
+            <!-- Structural column dots — 4 m grid at 20 vb/m -->
+            <pattern id="columns" width="80" height="80" patternUnits="userSpaceOnUse">
+              <rect x="38" y="38" width="4" height="4" fill="rgba(0,0,0,0.55)"/>
+            </pattern>
+          </defs>
+
+          <!-- Building outline. Geometry is to scale: 1 m = 20 vb units.
+               Arc/Beam wings 28×38.5 m (column 14 m wide; top 20.7 m / 290 m², bottom 17.8 m / 249 m²).
+               Chroma connector 41.4×30.4 m (column 20.7 m; top 10.4 m / 215 m², bottom 20 m / 415 m²). -->
+          <path class="bldg-outline" d="
+            M 20 20  L 580 20
+            L 580 100  L 1408 100
+            L 1408 20  L 1968 20
+            L 1968 790  L 1408 790
+            L 1408 710  L 580 710
+            L 580 790  L 20 790
+            Z" />
+
+          <!-- Column dots overlay (same path, filled with column pattern) -->
+          <path class="bldg-columns" d="
+            M 20 20  L 580 20
+            L 580 100  L 1408 100
+            L 1408 20  L 1968 20
+            L 1968 790  L 1408 790
+            L 1408 710  L 580 710
+            L 580 790  L 20 790
+            Z" />
+
+          <!-- Units (injected by JS) -->
+          <g id="planner-units"></g>
+
+          <!-- Unit-dividing structural lines -->
+          <g class="planner-grid">
+            <!-- Arc internal splits -->
+            <line x1="300" y1="20"  x2="300" y2="790"/>
+            <line x1="20"  y1="434" x2="580" y2="434"/>
+            <!-- Beam internal splits -->
+            <line x1="1688" y1="20"  x2="1688" y2="790"/>
+            <line x1="1408" y1="434" x2="1968" y2="434"/>
+            <!-- Chroma internal splits -->
+            <line x1="994" y1="100" x2="994"  y2="710"/>
+            <line x1="580" y1="308" x2="1408" y2="308"/>
+          </g>
+
+          <!-- Cores (toilets / elevators / stairs) — non-selectable; drawn after units to overlay selection fills -->
+          <g class="planner-cores">
+            <!-- Arc core — vertical strip near right edge of left column (≈4 m × 15 m) -->
+            <rect x="200" y="240" width="80" height="300"/>
+            <line x1="240" y1="240" x2="240" y2="540"/>
+            <line x1="200" y1="280" x2="280" y2="280"/>
+            <line x1="200" y1="320" x2="280" y2="320"/>
+            <line x1="200" y1="360" x2="280" y2="360"/>
+            <line x1="200" y1="400" x2="280" y2="400"/>
+            <line x1="200" y1="440" x2="280" y2="440"/>
+            <line x1="200" y1="480" x2="280" y2="480"/>
+            <!-- Beam core — mirror -->
+            <rect x="1708" y="240" width="80" height="300"/>
+            <line x1="1748" y1="240" x2="1748" y2="540"/>
+            <line x1="1708" y1="280" x2="1788" y2="280"/>
+            <line x1="1708" y1="320" x2="1788" y2="320"/>
+            <line x1="1708" y1="360" x2="1788" y2="360"/>
+            <line x1="1708" y1="400" x2="1788" y2="400"/>
+            <line x1="1708" y1="440" x2="1788" y2="440"/>
+            <line x1="1708" y1="480" x2="1788" y2="480"/>
+            <!-- Chroma top core — small block that protrudes above Chroma's top edge into the notch -->
+            <rect x="934" y="40" width="120" height="120"/>
+            <line x1="934" y1="100" x2="1054" y2="100"/>
+            <line x1="994" y1="40"  x2="994"  y2="160"/>
+          </g>
+
+          <!-- Building labels — below the outline -->
+          <g class="planner-bldg-labels">
+            <text x="300"  y="844" text-anchor="middle">ARC · OBLOUK</text>
+            <text x="994"  y="844" text-anchor="middle">CHROMA · SPEKTRUM</text>
+            <text x="1688" y="844" text-anchor="middle">BEAM · PAPRSEK</text>
+          </g>
+        </svg>
+
+        <div class="planner-legend">
+          <div class="planner-legend-item"><span class="dot dot-arc"></span> Arc — Oblouk</div>
+          <div class="planner-legend-item"><span class="dot dot-chroma"></span> Chroma — Spektrum</div>
+          <div class="planner-legend-item"><span class="dot dot-beam"></span> Beam — Paprsek</div>
+          <div class="planner-legend-hint">Klikem si vyberete jednotku · můžete je libovolně kombinovat napříč budovami · klikem na vybranou ji odeberete</div>
+        </div>
+      </div>
+
+      <aside class="planner-panel">
+        <div class="planner-panel-head">
+          <div class="label" style="opacity:.65;">Vybraná plocha</div>
+          <h3 class="h-2" style="margin-top: 6px;"><span id="planner-total">0</span> <span style="font-size:0.5em; letter-spacing:0; font-weight:400; color:var(--muted);">m²</span></h3>
+          <div class="planner-panel-sub" id="planner-count">Žádná jednotka nevybrána</div>
+        </div>
+
+        <div class="planner-hover" id="planner-hover">
+          <div class="label" style="opacity:.65;">Pod kurzorem</div>
+          <div class="planner-hover-body">
+            <div id="planner-hover-bldg">—</div>
+            <div id="planner-hover-unit" style="color:var(--muted); font-size:13px; margin-top:4px;">Najeďte na jednotku</div>
+            <div id="planner-hover-area" style="font-family: var(--font-display); font-stretch: 125%; font-size: 28px; margin-top: 8px;">— m²</div>
+            <div id="planner-hover-desc" style="color:var(--muted); font-size:12.5px; line-height:1.45; margin-top:6px; max-width: 30ch;">&nbsp;</div>
+          </div>
+        </div>
+
+        <div class="planner-selection" id="planner-selection">
+          <div class="label" style="opacity:.65;">Detail výběru</div>
+          <table class="planner-table" id="planner-table">
+            <thead>
+              <tr><th>Jednotka</th><th>Budova</th><th class="num">m²</th></tr>
+            </thead>
+            <tbody id="planner-table-body">
+              <tr class="empty"><td colspan="3">Zatím nic nevybráno.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="planner-actions">
+          <button type="button" class="btn ghost planner-clear" id="planner-clear">Vymazat výběr</button>
+          <a href="kontakt.html" class="btn">Poptat výběr<svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="planner-foot">
+      <div><img class="bldg-logo" src="assets/logo-arc.png" alt="Arc" /><span class="label" style="opacity:.65;">Arc — Oblouk</span><p>Spojuje lidi, technologie a&nbsp;inovace. Jednotky 249–290 m², jádro s&nbsp;výtahy uprostřed.</p></div>
+      <div><img class="bldg-logo" src="assets/logo-chroma.png" alt="Chroma" /><span class="label" style="opacity:.65;">Chroma — Spektrum</span><p>Centrální propojovací křídlo. Menší 215 m² jednotky u&nbsp;jádra, velké 415 m² open-space v&nbsp;jižní části.</p></div>
+      <div><img class="bldg-logo" src="assets/logo-beam.png" alt="Beam" /><span class="label" style="opacity:.65;">Beam — Paprsek</span><p>Nese světlo, signál a&nbsp;data. Jednotky 249–290 m² s&nbsp;optickým napojením na NIX.</p></div>
+    </div>
+  </div>
+</section>
+
+<script src="js/planner.js"></script>
+
+<section class="dark">
+  <div class="shell">
+    <div class="section-head">
+      <div class="section-num">02 — Pro koho je OXYMA</div>
+      <div><h2 class="h-1">Šest profilů <em>nájemců.</em></h2></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-top: 1px solid rgba(246,244,239,0.16); border-left: 1px solid rgba(246,244,239,0.16);">
+      <div style="padding: 32px 28px; border-right: 1px solid rgba(246,244,239,0.16); border-bottom: 1px solid rgba(246,244,239,0.16);">
+        <div class="label" style="opacity:.65;">R&amp;D</div>
+        <h3 class="h-3" style="margin-top: 10px;">Výzkum a vývoj</h3>
+        <p style="margin-top: 12px; opacity: 0.78; font-size: 14px;">Laboratoře, testovací prostředí, sdílené technologické zázemí a propojení s akademickou sférou.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid rgba(246,244,239,0.16); border-bottom: 1px solid rgba(246,244,239,0.16);">
+        <div class="label" style="opacity:.65;">ST</div>
+        <h3 class="h-3" style="margin-top: 10px;">Technologické startupy</h3>
+        <p style="margin-top: 12px; opacity: 0.78; font-size: 14px;">Flexibilní prostory s možností rozšiřování podle růstu firmy a týmu.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid rgba(246,244,239,0.16); border-bottom: 1px solid rgba(246,244,239,0.16);">
+        <div class="label" style="opacity:.65;">EN</div>
+        <h3 class="h-3" style="margin-top: 10px;">Energetika a kritická infrastruktura</h3>
+        <p style="margin-top: 12px; opacity: 0.78; font-size: 14px;">Vysokokapacitní napájení, trigenerace a možnost ostrovního provozu.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid rgba(246,244,239,0.16); border-bottom: 1px solid rgba(246,244,239,0.16);">
+        <div class="label" style="opacity:.65;">AI</div>
+        <h3 class="h-3" style="margin-top: 10px;">AI, data a digitální technologie</h3>
+        <p style="margin-top: 12px; opacity: 0.78; font-size: 14px;">Optické napojení do sítě NIX a infrastruktura pro práci s daty a nepřetržitý provoz.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid rgba(246,244,239,0.16); border-bottom: 1px solid rgba(246,244,239,0.16);">
+        <div class="label" style="opacity:.65;">MF</div>
+        <h3 class="h-3" style="margin-top: 10px;">Nerušivá výroba a prototypování</h3>
+        <p style="margin-top: 12px; opacity: 0.78; font-size: 14px;">Antistatické podlahy, vysokovýkonné přípojné body a efektivní zásobování.</p>
+      </div>
+      <div style="padding: 32px 28px; border-right: 1px solid rgba(246,244,239,0.16); border-bottom: 1px solid rgba(246,244,239,0.16);">
+        <div class="label" style="opacity:.65;">CO</div>
+        <h3 class="h-3" style="margin-top: 10px;">Administrativa a coworking</h3>
+        <p style="margin-top: 12px; opacity: 0.78; font-size: 14px;">Smart recepce, sdílené služby, zelené terasy i zázemí pro každodenní komfort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <div class="section-head">
+      <div class="section-num">03 — Modulární patra</div>
+      <div>
+        <h2 class="h-1">Jednotky <em>od 250 m².</em></h2>
+        <p class="lead" style="margin-top: 24px;">
+          Každé patro lze provozovat jako jeden celek, nebo rozdělit na samostatné jednotky se sdíleným jádrem.
+        </p>
+      </div>
+    </div>
+
+    <figure style="margin: 0; border: 1px solid var(--line); padding: clamp(20px, 3vw, 40px); background: var(--paper-2);">
+      <img src="assets/floorplan-typical.jpg" alt="Půdorys typického podlaží" />
+      <figcaption class="label" style="display:flex; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid var(--line-soft); margin-top: 20px; flex-wrap: wrap;">
+        <span>Typické podlaží — jednotky 215–415 m²</span>
+        <span style="opacity: 0.6;">Variabilní dispozice</span>
+      </figcaption>
+    </figure>
+
+    <figure style="margin: 56px 0 0; border: 1px solid var(--line); padding: clamp(20px, 3vw, 40px); background: var(--paper-2);">
+      <img src="assets/floorplan-terrace.jpg" alt="Půdorys terasového podlaží" />
+      <figcaption class="label" style="display:flex; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid var(--line-soft); margin-top: 20px; flex-wrap: wrap;">
+        <span>Terasové podlaží — sdílená střešní zahrada 660 m²</span>
+        <span style="opacity: 0.6;">Panoramatický výhled</span>
+      </figcaption>
+    </figure>
+
+    <div style="margin-top: 64px; display: flex; gap: 14px; flex-wrap: wrap;">
+      <a href="shell-core.html" class="btn">Co je v Shell &amp; Core<svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg></a>
+      <a href="kontakt.html" class="btn ghost">Domluvit schůzku</a>
+    </div>
+  </div>
+</section>
+
+<script>renderFooter(); initTweaks({ theme: 'light', accent: 'red' });</script>
+</body>
+</html>

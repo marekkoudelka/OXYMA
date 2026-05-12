@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kontakt — OXYMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+ExtraExpanded:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  .ct-grid { display: grid; gap: 0; grid-template-columns: 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  @media (min-width: 900px) { .ct-grid { grid-template-columns: 1.4fr 1fr; } }
+  .form { padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 56px) clamp(32px, 5vw, 56px) 0; display: grid; gap: 22px; }
+  @media (max-width: 899px) { .form { padding-right: 0; padding-bottom: 32px; border-bottom: 1px solid var(--line-soft); } }
+  .form-row { display: grid; gap: 8px; }
+  .form-row.two { grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 600px) { .form-row.two { grid-template-columns: 1fr; } }
+  .form label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .form input, .form textarea { font: inherit; background: transparent; border: none; border-bottom: 1px solid var(--line-soft); padding: 10px 0; color: var(--ink); outline: none; font-size: 16px; font-family: var(--font-body); }
+  .form input:focus, .form textarea:focus { border-bottom-color: var(--ink); }
+  .form textarea { resize: vertical; min-height: 110px; }
+  .info { padding: clamp(32px, 5vw, 56px) 0 clamp(32px, 5vw, 56px) clamp(24px, 4vw, 56px); display: grid; gap: 32px; align-content: start; border-left: 1px solid var(--line-soft); }
+  @media (max-width: 899px) { .info { padding: 32px 0 0; border-left: none; } }
+  .info .item { display: grid; gap: 6px; }
+</style>
+</head>
+<body data-screen-label="Kontakt">
+<script src="js/shared.js"></script>
+<script>renderNav('contact');</script>
+
+<header class="page-hero dark"><div class="shell" style="padding: clamp(80px, 10vw, 140px) var(--gutter) clamp(60px, 8vw, 100px);">
+  <div class="eyebrow" style="margin-bottom: 28px;"><a href="index.html" style="opacity:.7;">Domů</a> &nbsp;/&nbsp; Kontakt</div>
+  <h1 class="h-display">Domluvte si <em>schůzku.</em></h1>
+  <p class="lead" style="margin-top: clamp(28px, 4vw, 48px); max-width: 64ch;">
+    Staňte se součástí nové technologické adresy v Praze. Ozvěte se nám a společně projdeme možnosti prostor, technologického zázemí i fit-outu podle potřeb vašeho projektu. Do dvou pracovních dnů se vám ozveme s konkrétní nabídkou.
+  </p>
+</div></header>
+
+<div class="spectrum-bar"></div>
+
+<section>
+  <div class="shell">
+    <div class="ct-grid">
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('.sent').style.display='inline-flex';">
+        <div class="section-num" style="margin-bottom: 8px;">Poptávkový formulář</div>
+        <p style="font-size: 14px; color: var(--muted); margin-top: -8px;">Popište nám vaše požadavky na prostory, infrastrukturu nebo fit-out a připojte i preferovaný termín nastěhování.</p>
+
+        <div class="form-row two">
+          <div class="form-row"><label for="ct-name">Jméno</label><input id="ct-name" type="text" required placeholder="Jan Novák" /></div>
+          <div class="form-row"><label for="ct-co">Společnost</label><input id="ct-co" type="text" placeholder="ACME s.r.o." /></div>
+        </div>
+        <div class="form-row two">
+          <div class="form-row"><label for="ct-email">E-mail</label><input id="ct-email" type="email" required placeholder="jan@acme.cz" /></div>
+          <div class="form-row"><label for="ct-phone">Telefon</label><input id="ct-phone" type="tel" placeholder="+420 ..." /></div>
+        </div>
+        <div class="form-row two">
+          <div class="form-row"><label for="ct-size">Hledaná velikost (m²)</label><input id="ct-size" type="text" placeholder="cca 400 m²" /></div>
+          <div class="form-row"><label for="ct-when">Termín nastěhování</label><input id="ct-when" type="text" placeholder="Q3 2026" /></div>
+        </div>
+        <div class="form-row">
+          <label for="ct-msg">Vaše požadavky</label>
+          <textarea id="ct-msg" placeholder="Pár vět o tom, co hledáte — prostor, infrastruktura, fit-out…"></textarea>
+        </div>
+
+        <div style="display:flex; gap: 14px; flex-wrap: wrap; padding-top: 8px; align-items: center;">
+          <button type="submit" class="btn">Odeslat poptávku<svg class="arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg></button>
+          <span class="sent" style="display:none; align-items:center; gap:10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--c4);">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l3 3 7-7"/></svg>
+            Odesláno — ozveme se do 2 dní
+          </span>
+        </div>
+      </form>
+
+      <aside class="info">
+        <div class="section-num">Kontakt</div>
+
+        <div class="item">
+          <div class="label" style="color: var(--muted);">Kontaktní osoba</div>
+          <p><a href="mailto:stulcova@ttc.cz" style="border-bottom: 1px solid var(--line-soft);">stulcova@ttc.cz</a></p>
+          <p style="font-family: var(--font-mono); font-size: 14px;">+420 731 603 875</p>
+        </div>
+
+        <div class="item">
+          <div class="label" style="color: var(--muted);">Investor</div>
+          <p>TTC REAL ESTATE, a.s.<br/>Vinohradská 3217/167<br/>100 00 Praha 10 — Strašnice</p>
+        </div>
+
+        <div class="item">
+          <div class="label" style="color: var(--muted);">Web</div>
+          <p><a href="https://www.oxyma.cz" style="border-bottom: 1px solid var(--line-soft);">www.oxyma.cz</a></p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="scene">
+  <figure>
+    <img src="assets/oxyma-abc.jpg" alt="OXYMA — Arc, Beam, Chroma" loading="lazy" style="aspect-ratio: 21/9; object-fit: cover;" />
+    <figcaption><span>OXYMA — Arc · Beam · Chroma</span><span class="dim">Praha 10 — Malešice</span></figcaption>
+  </figure>
+</section>
+
+<script>renderFooter(); initTweaks({ theme: 'light', accent: 'red' });</script>
+</body>
+</html>
