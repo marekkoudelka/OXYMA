@@ -406,60 +406,19 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  border: none;
-  background: transparent;
-  color: var(--paper);
-  transition: color .2s ease;
-  cursor: pointer;
-  position: relative;
-  isolation: isolate;
-}
-.btn > * { position: relative; z-index: 1; }
-.btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  border: 1px solid var(--ink);
   background: var(--ink);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%);
-  transition: clip-path .25s ease, background-color .2s ease;
-  z-index: -1;
+  color: var(--paper);
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  cursor: pointer;
 }
-.btn::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  background: var(--paper) padding-box, var(--spectrum) border-box;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  border: 2px solid transparent;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%);
-  opacity: 0;
-  transition: opacity .25s ease, clip-path .25s ease;
-  z-index: -2;
-  pointer-events: none;
-}
-.btn:hover::before {
-  clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
-}
-.btn:hover::after {
-  opacity: 1;
-  clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
-}
-.btn.ghost { color: var(--ink); }
-.btn.ghost::before { background: transparent; border: 1px solid var(--line); }
-.btn.ghost:hover { color: var(--paper); }
-.btn.ghost:hover::before { background: var(--ink); }
-.dark .btn, .invert .btn { color: var(--ink); }
-.dark .btn::before, .invert .btn::before { background: var(--paper); }
-.dark .btn::after, .invert .btn::after {
-  background: var(--ink) padding-box, var(--spectrum) border-box;
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-}
-.dark .btn.ghost, .invert .btn.ghost { color: var(--paper); }
-.dark .btn.ghost::before, .invert .btn.ghost::before { background: transparent; border-color: var(--paper); }
-.dark .btn.ghost:hover, .invert .btn.ghost:hover { color: var(--ink); }
-.dark .btn.ghost:hover::before, .invert .btn.ghost:hover::before { background: var(--paper); }
+.btn:hover { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); }
+.dark .btn, .invert .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.dark .btn:hover, .invert .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--paper); }
+.dark .btn.ghost, .invert .btn.ghost { background: transparent; color: var(--paper); border-color: var(--paper); }
+.dark .btn.ghost:hover, .invert .btn.ghost:hover { background: var(--paper); color: var(--ink); }
 .btn .arrow { width: 14px; height: 14px; transition: transform .2s; }
 .btn:hover .arrow { transform: translateX(3px); }
 
