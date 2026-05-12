@@ -1,12 +1,12 @@
 // ============ OXYMA SHARED ============
-// OXYMA mark — simplified X built from four chevrons pointing inward,
+// OXYMA mark - simplified X built from four chevrons pointing inward,
 // with a fine rainbow outline echoing the brand cover art.
 window.OXYMA_MARK = function(opts) {
   opts = opts || {};
   var size = opts.size || 38;
   var color = opts.color || 'currentColor';
   var rainbow = opts.rainbow ? 'url(#oxyma-spectrum)' : color;
-  // Path: an X-shaped polygon — four notches cut into the corners.
+  // Path: an X-shaped polygon - four notches cut into the corners.
   // The shape is: square 0,0–100,100 with notches at each corner forming an X / star-like X.
   var d = 'M 50 35 L 15 0 L 0 0 L 0 15 L 35 50 L 0 85 L 0 100 L 15 100 L 50 65 L 85 100 L 100 100 L 100 85 L 65 50 L 100 15 L 100 0 L 85 0 Z';
   return '\
@@ -79,7 +79,7 @@ window.renderFooter = function() {
           <img src="assets/logo-oxyma-h-white.png" alt="OXYMA" class="brand-logo" style="height:42px;" />\
         </a>\
         <p style="margin-top:24px;max-width:36ch;color:rgba(246,244,239,0.7);font-size:14px;">\
-          Technologické centrum v pražských Malešicích. Tři budovy — Arc, Beam a Chroma — fáze 1.\
+          Technologické centrum v pražských Malešicích. Tři budovy - Arc, Beam a Chroma - fáze 1.\
         </p>\
       </div>\
       <div>\
@@ -96,7 +96,7 @@ window.renderFooter = function() {
         <ul>\
           <li>stulcova@ttc.cz</li>\
           <li>+420 731 603 875</li>\
-          <li>Praha 10 — Malešice</li>\
+          <li>Praha 10 - Malešice</li>\
         </ul>\
       </div>\
       <div>\
@@ -104,13 +104,13 @@ window.renderFooter = function() {
         <ul>\
           <li>TTC REAL ESTATE, a.s.</li>\
           <li>Vinohradská 3217/167</li>\
-          <li>100 00 Praha 10 — Strašnice</li>\
+          <li>100 00 Praha 10 - Strašnice</li>\
           <li><a href="https://www.oxyma.cz">www.oxyma.cz</a></li>\
         </ul>\
       </div>\
     </div>\
     <div class="footer-bottom">\
-      <span>© 2025 OXYMA — Všechna práva vyhrazena</span>\
+      <span>© 2025 OXYMA - Všechna práva vyhrazena</span>\
       <span>Vizualizace mají ilustrační charakter</span>\
     </div>\
   </div>\

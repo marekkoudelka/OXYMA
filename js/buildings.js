@@ -15,7 +15,7 @@
         { n: '3.NP', name: 'Kanceláře &amp; vývoj', units:[{t:'KNC', lbl:'Kanc. 3A', s:'1 200 m²'},{t:'VYV', lbl:'Vývoj 3B', s:'480 m²'}]},
         { n: '2.NP', name: 'Kanceláře', units:[{t:'KNC', lbl:'Kanc. 2A', s:'820 m²'},{t:'KNC', lbl:'Kanc. 2B', s:'540 m²'},{t:'KNC', lbl:'Kanc. 2C', s:'260 m²'}]},
         { n: '1.NP', name: 'Recepce &amp; lobby', units:[{t:'RTL', lbl:'Recepce', s:'180 m²'},{t:'RTL', lbl:'Kavárna', s:'140 m²'},{t:'KNC', lbl:'Showroom', s:'320 m²'}]},
-        { n: '1.PP', name: 'Parkování · tech.', units:[{t:'TEC', lbl:'Technologie', s:'—'}]},
+        { n: '1.PP', name: 'Parkování · tech.', units:[{t:'TEC', lbl:'Technologie', s:'-'}]},
       ],
     },
     beam: {
@@ -29,7 +29,7 @@
         { n: '3.NP', name: 'Zelená terasa &amp; clubs', units:[{t:'REL', lbl:'Terasa', s:'sdílené'},{t:'REL', lbl:'Club room', s:'220 m²'}]},
         { n: '2.NP', name: 'Kanceláře', units:[{t:'KNC', lbl:'Kanc. 2A', s:'960 m²'},{t:'KNC', lbl:'Kanc. 2B', s:'620 m²'},{t:'KNC', lbl:'Kanc. 2C', s:'280 m²'}]},
         { n: '1.NP', name: 'Coworking · lobby', units:[{t:'KNC', lbl:'Coworking', s:'540 m²'},{t:'RTL', lbl:'Restaurace', s:'380 m²'},{t:'RTL', lbl:'Shop', s:'90 m²'}]},
-        { n: '1.PP', name: 'Parkování · tech.', units:[{t:'TEC', lbl:'Technologie', s:'—'}]},
+        { n: '1.PP', name: 'Parkování · tech.', units:[{t:'TEC', lbl:'Technologie', s:'-'}]},
       ],
     },
     chroma: {
@@ -45,7 +45,7 @@
         { n: '3.NP', name: 'Výroba', units:[{t:'VYR', lbl:'Výroba 3A', s:'1 400 m²'},{t:'VYR', lbl:'Výroba 3B', s:'680 m²'}]},
         { n: '2.NP', name: 'Výroba · montáž', units:[{t:'VYR', lbl:'Výroba 2A', s:'1 600 m²'},{t:'VYR', lbl:'Montáž 2B', s:'540 m²'}]},
         { n: '1.NP', name: 'Retail &amp; lobby', units:[{t:'RTL', lbl:'Retail 1A', s:'280 m²'},{t:'RTL', lbl:'Retail 1B', s:'190 m²'},{t:'RTL', lbl:'Kavárna', s:'120 m²'}]},
-        { n: '1.PP', name: 'Parkování · nákl.', units:[{t:'TEC', lbl:'Zásobování', s:'—'}]},
+        { n: '1.PP', name: 'Parkování · nákl.', units:[{t:'TEC', lbl:'Zásobování', s:'-'}]},
       ],
     },
   };
@@ -85,7 +85,7 @@
     const b = BLDG[state.bldg];
     if (state.floor === null || state.floor >= b.floorData.length) state.floor = Math.min(1, b.floorData.length - 1);
 
-    // Plan SVG — cross-section with floors
+    // Plan SVG - cross-section with floors
     const plan = document.getElementById('bv-plan');
     const tip = plan.querySelector('#unit-tip');
     const floors = b.floorData;
@@ -167,7 +167,7 @@
         <div class="bv-stat"><div class="k">Akcent</div><div class="v" style="display: flex; align-items: center; gap: 10px;"><span style="display: inline-block; width: 22px; height: 22px; background: ${b.color};"></span></div></div>
       </div>
       <div>
-        <div class="spec-k" style="margin-bottom: 10px;">Patra — klikněte</div>
+        <div class="spec-k" style="margin-bottom: 10px;">Patra - klikněte</div>
         <div class="floor-picker">
           ${floors.map((f, i) => `
             <button class="floor-btn" aria-selected="${i === state.floor}" data-fidx="${i}">
@@ -178,7 +178,7 @@
         </div>
       </div>
       <div style="border-top: 1px solid var(--line-soft); padding-top: 16px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--muted);">
-        ${selected ? `VYBRÁNO: ${selected.n.replace('&amp;','&')} — ${selected.units.length} jednotek` : '—'}
+        ${selected ? `VYBRÁNO: ${selected.n.replace('&amp;','&')} - ${selected.units.length} jednotek` : '-'}
       </div>
     `;
 

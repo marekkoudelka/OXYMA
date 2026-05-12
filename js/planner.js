@@ -260,7 +260,7 @@
     }
     // < 500 m²: jen stoly
 
-    // Carve rooms from one end of the region — alternating along the long axis
+    // Carve rooms from one end of the region - alternating along the long axis
     let bench = { ...region };
     if (horiz) {
       let cursor = bench.x + bench.w;
@@ -320,7 +320,7 @@
       g.classList.toggle('selected', selected.has(g.dataset.id));
     });
 
-    // Rebuild fitouts — per individual unit, no merging
+    // Rebuild fitouts - per individual unit, no merging
     fitG.innerHTML = '';
     if (selected.size === 0) return;
     [...selected].map(id => info(id)).filter(Boolean).forEach(u => {
@@ -330,9 +330,9 @@
 
   function showHover(u) {
     if (!u) {
-      hoverBldg.innerHTML = '—';
+      hoverBldg.innerHTML = '-';
       hoverUnit.textContent = 'Najeďte na jednotku';
-      hoverArea.textContent = '— m²';
+      hoverArea.textContent = '- m²';
       hoverDesc.innerHTML = '&nbsp;';
       return;
     }
