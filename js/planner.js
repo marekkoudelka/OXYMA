@@ -337,7 +337,7 @@
       return;
     }
     const b = buildings[u.bldg];
-    hoverBldg.innerHTML = `<span class="hover-dot" style="background:${b.accent}"></span> ${b.label} — ${b.char}`;
+    hoverBldg.innerHTML = `<span class="hover-dot" style="background:${b.accent}"></span> ${b.label}`;
     hoverUnit.textContent = `Jednotka ${u.code}`;
     hoverArea.textContent = `${u.area} m²`;
     hoverDesc.textContent = u.desc;
