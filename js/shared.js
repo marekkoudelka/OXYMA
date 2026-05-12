@@ -199,3 +199,39 @@ window.initTweaks = function(defaults) {
     window.parent.postMessage({ type: '__edit_mode_available' }, '*');
   }
 };
+
+// Parallax: all .hero-photo images on the page (auto-init on DOMContentLoaded)
+(function(){
+  function init(){
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var figs = document.querySelectorAll('.hero-photo');
+    if (!figs.length) return;
+    var items = [];
+    figs.forEach(function(fig){
+      var img = fig.querySelector('img');
+      if (img) items.push({ fig: fig, img: img });
+    });
+    if (!items.length) return;
+    var ticking = false;
+    function update(){
+      var vh = window.innerHeight;
+      items.forEach(function(it){
+        var rect = it.fig.getBoundingClientRect();
+        if (rect.bottom < -200 || rect.top > vh + 200) return;
+        var centerOffset = rect.top + rect.height/2 - vh/2;
+        var t = -centerOffset * 0.18;
+        var max = rect.height * 0.10;
+        if (t > max) t = max;
+        if (t < -max) t = -max;
+        it.img.style.transform = 'translate3d(0,' + t.toFixed(2) + 'px,0)';
+      });
+      ticking = false;
+    }
+    function onScroll(){ if (!ticking){ requestAnimationFrame(update); ticking = true; } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
