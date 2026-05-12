@@ -186,7 +186,6 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
 .hero-airy.dark .tech-ticker { border-color: rgba(255,255,255,0.16); color: rgba(255,255,255,0.7); }
 .hero-airy.dark .tech-ticker-track > span::after { background: #fff; opacity: .4; }
 .hero-airy.dark .btn { background: #fff; color: #000; border-color: #fff; }
-.hero-airy.dark .btn:hover { box-shadow: 4px 4px 0 #fff; }
 .hero-airy.dark .btn.ghost { background: transparent; color: #fff; border-color: #fff; }
 .hero-airy.dark .btn.ghost:hover { background: #fff; color: #000; }
 .hero-airy.dark .hero-lead { color: rgba(255,255,255,0.85); }
@@ -410,14 +409,30 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
   border: 1px solid var(--line);
   background: var(--ink);
   color: var(--paper);
-  transition: all .2s ease;
+  transition: clip-path .25s ease, background-color .2s ease, color .2s ease;
   cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%);
 }
-.btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: var(--spectrum);
+  clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.btn:hover {
+  clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
+}
+.btn:hover::before { opacity: 1; }
 .btn.ghost { background: transparent; color: var(--ink); }
-.btn.ghost:hover { background: var(--ink); color: var(--paper); box-shadow: none; transform: none; }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); }
 .dark .btn, .invert .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
-.dark .btn:hover, .invert .btn:hover { box-shadow: 4px 4px 0 var(--paper); }
 .dark .btn.ghost, .invert .btn.ghost { background: transparent; color: var(--paper); border-color: var(--paper); }
 .dark .btn.ghost:hover, .invert .btn.ghost:hover { background: var(--paper); color: var(--ink); }
 .btn .arrow { width: 14px; height: 14px; transition: transform .2s; }
