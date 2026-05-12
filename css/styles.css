@@ -418,8 +418,19 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
 .btn::before {
   content: '';
   position: absolute;
-  inset: -3px;
+  inset: -6px;
   background: var(--spectrum);
+  clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: -2;
+  pointer-events: none;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: var(--paper);
   clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
   opacity: 0;
   transition: opacity .25s ease;
@@ -429,10 +440,13 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
 .btn:hover {
   clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%, 8% 50%);
 }
-.btn:hover::before { opacity: 1; }
+.btn:hover::before,
+.btn:hover::after { opacity: 1; }
 .btn.ghost { background: transparent; color: var(--ink); }
 .btn.ghost:hover { background: var(--ink); color: var(--paper); }
 .dark .btn, .invert .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.dark .btn::after, .invert .btn::after,
+.hero-airy.dark .btn::after { background: var(--ink); }
 .dark .btn.ghost, .invert .btn.ghost { background: transparent; color: var(--paper); border-color: var(--paper); }
 .dark .btn.ghost:hover, .invert .btn.ghost:hover { background: var(--paper); color: var(--ink); }
 .btn .arrow { width: 14px; height: 14px; transition: transform .2s; }
