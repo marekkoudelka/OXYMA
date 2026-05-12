@@ -241,12 +241,8 @@ section { padding: clamp(72px, 9vw, 130px) 0; }
   color: transparent;
 }
 
-.hero-photo { position: relative; margin: 0; width: 100%; overflow: hidden; }
-.hero-photo img { width: 100%; height: 120%; object-fit: cover; display: block; will-change: transform; }
-/* parallax: home hero photo (first .hero-photo inside .hero-airy) */
-.hero-airy .hero-photo { height: clamp(480px, 75vw, 850px); }
-/* scenic full-bleed strip (section divider) — cinematic crop */
-.hero-photo.scenic-strip { height: clamp(280px, 46vw, 560px); }
+.hero-photo { position: relative; margin: 0; width: 100%; overflow: hidden; height: clamp(480px, 75vw, 850px); }
+.hero-photo img { position: absolute; top: -10%; left: 0; width: 100%; height: 120%; object-fit: cover; display: block; will-change: transform; }
 @media (prefers-reduced-motion: reduce) {
   .hero-photo img { transform: none !important; }
 }
