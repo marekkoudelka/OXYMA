@@ -268,6 +268,30 @@
     else if (r.logoDark) img.src = r.logoDark;
   });
 })();
+// Hero photo parallax
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var fig = document.querySelector('.hero-airy .hero-photo');
+  if (!fig) return;
+  var img = fig.querySelector('img');
+  if (!img) return;
+  var ticking = false;
+  function update(){
+    var rect = fig.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var centerOffset = rect.top + rect.height/2 - vh/2;
+    var t = -centerOffset * 0.18;
+    var max = rect.height * 0.10;
+    if (t > max) t = max;
+    if (t < -max) t = -max;
+    img.style.transform = 'translate3d(0,' + t.toFixed(2) + 'px,0)';
+    ticking = false;
+  }
+  function onScroll(){ if (!ticking){ requestAnimationFrame(update); ticking = true; } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
 </script>
 </body>
 </html>
