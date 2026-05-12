@@ -236,7 +236,7 @@ window.initTweaks = function(defaults) {
   else init();
 })();
 
-// Horizontal parallax: teaser-media photos (skip non-absolute imgs like the kontakt logo)
+// Horizontal parallax: teaser-media photos via object-position (skip non-absolute imgs)
 (function(){
   function init(){
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -251,11 +251,11 @@ window.initTweaks = function(defaults) {
         var rect = fig.getBoundingClientRect();
         if (rect.bottom < -200 || rect.top > vh + 200) return;
         var centerOffset = rect.top + rect.height/2 - vh/2;
-        var t = -centerOffset * 0.12;
-        var max = rect.width * 0.08;
+        var t = -centerOffset * 0.025; // percent points
+        var max = 15;
         if (t > max) t = max;
         if (t < -max) t = -max;
-        img.style.transform = 'translate3d(' + t.toFixed(2) + 'px,0,0)';
+        img.style.objectPosition = (50 + t).toFixed(2) + '% 50%';
       });
       ticking = false;
     }
