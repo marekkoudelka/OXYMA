@@ -50,7 +50,7 @@ window.renderNav = function(active) {
         return '<a href="' + l.href + '"' + (l.key === active ? ' aria-current="page"' : '') + '>' + l.label + '</a>';
       }).join('') +
     '</div>\
-    <a href="kontakt.html" class="nav-cta">Domluvit prohlídku</a>\
+    <a href="kontakt.html" class="nav-cta">Domluvte si schůzku</a>\
   </div>\
 </nav>';
   document.write(html);
